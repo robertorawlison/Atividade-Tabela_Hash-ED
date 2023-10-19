@@ -18,7 +18,7 @@ public:
         tabela[i].resize(tamanho_n);
     }
 }
-
+//funcao para insercao de valores na tabela
     void inserir(int valor){
         int idx1 = valor % tamanho_level1;
         int idx2 = valor % tamanho_n;
@@ -26,6 +26,7 @@ public:
         tabela[idx1][idx2].push_back(valor);
     }
 
+//funcao para remocao de valores na tabela
     void remover(int valor){
         int idx1 = valor % tamanho_level1;
         int idx2 = valor % tamanho_n;
@@ -33,6 +34,7 @@ public:
         tabela[idx1][idx2].remove(valor);
     }
 
+//funcao para busca de valores na tabela
     bool buscar(int valor){
         int idx1 = valor % tamanho_level1;
         int idx2 = valor % tamanho_n;
@@ -45,6 +47,7 @@ public:
         return false;
     }
 
+//funcao para impressao da tabela
     void imprimir(){
         for(int i = 0; i < tamanho_level1; i++){
             for(int j = 0; j < tamanho_n; j++){
@@ -60,20 +63,23 @@ public:
 };
 
 int main(){
-    tabela_h tabela(20);
-
+    tabela_h tabela(20); //criacao da tabela com tamanho igaual a 20
+    
+//insercao de valores na tabela
     tabela.inserir(5);
     tabela.inserir(15);
     tabela.inserir(25);
     tabela.inserir(7);
     tabela.inserir(17);
-
+    
+//busca na tabela
     cout << "Buscando valor: 15" << endl;
     cout << "resultado busca: " << tabela.buscar(15) << endl;
 
     cout << "Tabela pos insercao: " << endl;
     tabela.imprimir();
-
+    
+//remocao na tabela
     tabela.remover(25);
     tabela.remover(17);
 
